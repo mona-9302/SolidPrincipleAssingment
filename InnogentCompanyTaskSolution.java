@@ -7,7 +7,7 @@ class BankAccount {
     //  SRP - Constructor ka kaam sirf object initialize karna hai
     public BankAccount(String accountNumber, double balance) {
         this.accountNumber = accountNumber;
-        this.balance = balance;
+        this.balance = balance;;
     }
 
     //  Encapsulation -  getter -> data ko read karne ka controlled way
