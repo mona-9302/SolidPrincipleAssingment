@@ -199,9 +199,15 @@ class Employee{
             long arrayInsertTime = insertElements(arrayList, size);
             long arrayDeleteTime = deleteElements(arrayList, size);
 
+			System.out.println(arrayInsertTime);
+			System.out.println(arrayDeleteTime);
+
             List<Integer> linkedList = new LinkedList<>();
             long linkInsertTime = insertElements(linkedList, size);
             long linkDeleteTime = deleteElements(linkedList, size);
+
+			System.out.println(linkInsertTime);
+			System.out.println(linkDeleteTime);
         }
     }
 
@@ -225,3 +231,4 @@ class Employee{
         return end - start;
     }
 }
+
