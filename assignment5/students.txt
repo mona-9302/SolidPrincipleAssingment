@@ -1,0 +1,6 @@
+1,monika,1,80.0,F,18,indore,123456,Pass
+1,anugya,1,90.0,F,18,sonkatch,123456,Pass
+1,Anurag,1,85.0,M,20,Khandwa,1,Pass
+2,anuda,1,99.0,F,18,indore,123456,Pass
+5,monika,1,60.0,F,19,indore,123456,Pass
+1,madhuri,1,80.0,M,19,indore,123456,Pass
