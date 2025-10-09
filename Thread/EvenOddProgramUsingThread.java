@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.*;
 import java.lang.*;
 import java.util.Queue;
+import java.util.Scanner;
 
 class PrintNumbers {
     int count = 1;
@@ -80,13 +81,18 @@ class ProducerConsumerExample {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter queue capacity: ");
+        int capacity = sc.nextInt();
 
+        System.out.print("Enter number of items to produce/consume: ");
+        int n = sc.nextInt();
         ProducerConsumerExample pc = new ProducerConsumerExample(5);
 
         
         Thread producerThread = new Thread(() -> {
             try {
-                for (int i = 0; i <= 10; i++) {
+                for (int i = 0; i <= n; i++) {
                     pc.produce(i);
                     Thread.sleep(500);
                 }
