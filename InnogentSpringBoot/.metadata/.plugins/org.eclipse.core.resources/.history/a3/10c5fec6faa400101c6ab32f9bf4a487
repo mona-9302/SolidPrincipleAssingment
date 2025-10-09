@@ -1,0 +1,40 @@
+package com.example.demo.serviceImpl;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.demo.entity.Student;
+import com.example.demo.repo.IStudentRepository;
+import com.example.demo.service.IStudentService;
+
+@Service
+public class StudentServiceImpl implements IStudentService {
+    
+	@Autowired
+	private IStudentRepository repo;
+	
+	@Override
+	public Student insert(Student student) {
+	
+		return repo.save(student);
+	}
+
+	@Override
+	public List<Student> show() {
+		
+		return repo.findAll();
+	}
+
+	@Override
+	public String deleteStudent(Integer id) {
+	
+		 repo.deleteById(id);
+		return null;
+	}
+
+	@Override
+	public Student update(Student student) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
