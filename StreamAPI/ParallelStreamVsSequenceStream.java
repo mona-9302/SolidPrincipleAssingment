@@ -30,6 +30,7 @@ class PerformanceComparisonSimple {
         System.out.println("Parallel Stream Result: " + sumParallel);
         System.out.println("Time with Parallel Stream: " + (end1 - start1) + " ms\n");
 
+
         // ----------ExecutorService ----------
         ExecutorService executor = Executors.newFixedThreadPool(4);
         int chunk = numbers.size() / 4;
@@ -65,6 +66,6 @@ class PerformanceComparisonSimple {
        
         System.out.println("\nBoth results are same: " + (sumParallel == totalSum));
         System.out.println("Faster approach: " + 
-            ((end1 - start1) < (end2 - start2) ? "Parallel Stream ✅" : "ExecutorService ✅"));
+            ((end1 - start1) < (end2 - start2) ? "Parallel Stream " : "ExecutorService "));
     }
 }

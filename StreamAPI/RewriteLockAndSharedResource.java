@@ -19,7 +19,7 @@ class SharedData {
     private String data = "Initial Data";
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
 
-    public void readData(String name) {
+    public void readData(String name)    {
         lock.readLock().lock();
         try {
             System.out.println(name + " reading: " + data);
