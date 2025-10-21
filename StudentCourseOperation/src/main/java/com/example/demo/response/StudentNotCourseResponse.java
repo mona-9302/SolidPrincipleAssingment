@@ -6,9 +6,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseResponse {
-    
-	private Integer id;
-	private String name;
-	private String instructor;
+public class StudentNotCourseResponse {
+
+	 private Integer id;
+	 private String name;
+	 private String email;
+	 private String city;
 }

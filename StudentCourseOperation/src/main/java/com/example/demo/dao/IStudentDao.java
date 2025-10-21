@@ -1,16 +1,22 @@
 package com.example.demo.dao;
-
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.example.demo.request.StudentRequest;
+import com.example.demo.response.StudentCountResponse;
+import com.example.demo.response.StudentCourseResponse;
+import com.example.demo.response.StudentNotCourseResponse;
 import com.example.demo.response.StudentResponse;
 
+@Repository
 public interface IStudentDao {
-    
-	public StudentResponse createStudent(StudentRequest request);
-	public List<StudentResponse> showAllStudent();
-	public List<StudentResponse> getStudentByCourseName(String courseName);
-	public List<StudentResponse> getStudentsWithoutCourse();
-	public List<StudentResponse> searchStudentsByCityAndInstructor(String city, String instructor);
-	public boolean updateInstructor(Long courseId, String newInstructor);
+
+	public StudentResponse insert(StudentRequest request);
+	public List<StudentResponse> showStudents();
+	public List<StudentCourseResponse> findStudentByCourseName(String name);
+	public List<StudentCountResponse> getStudentCount();
+	public List<StudentNotCourseResponse> getNotEnrollStudent();
+	public List<StudentNotCourseResponse> searchStudent(String city, String instructor);
+
 }

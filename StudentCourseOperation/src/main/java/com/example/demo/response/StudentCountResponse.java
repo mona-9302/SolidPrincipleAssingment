@@ -6,9 +6,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseResponse {
+public class StudentCountResponse {
     
-	private Integer id;
-	private String name;
-	private String instructor;
+	 private Integer id;
+	 private String courseName;
+	 private Long totalCounts;
+	 
 }

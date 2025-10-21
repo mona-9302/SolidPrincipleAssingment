@@ -5,52 +5,55 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.service.annotation.PatchExchange;
 
+import com.example.demo.request.CourseRequest;
+import com.example.demo.request.UpdateCourseRequest;
 import com.example.demo.response.CourseResponse;
-import com.example.demo.response.CourseResponseDTO;
-import com.example.demo.response.CourseStudentDTOCount;
+import com.example.demo.response.StudentWithCoursesCount;
 import com.example.demo.service.ICourseService;
 
-@RequestMapping("/course")
 @RestController
+@RequestMapping("/course")
 public class CourseController {
-    
+   
 	@Autowired
-	private ICourseService courseService;
-	
-	@PutMapping("/courses/{id}/instructor")
-	public ResponseEntity<String> updateCourseInstructor(
-	        @PathVariable Long id,
-	        @RequestParam String instructor) {
+	private ICourseService service;
 
-	    boolean updated = courseService.updateInstructor(id, instructor);
-	    System.out.println("controller id "+id);
-	    if (updated) {
-	        return ResponseEntity.ok("Instructor updated successfully");
-	    } else {
-	        return ResponseEntity.status(404).body("Course not found");
-	    }
+	@PostMapping("/insert")
+	public ResponseEntity<CourseResponse>create(@RequestBody CourseRequest request){
+		return new ResponseEntity<CourseResponse>(service.insert(request),HttpStatus.CREATED);
 	}
 	
-	 @GetMapping("/student-count")
-	 public ResponseEntity<List<CourseResponse>> getCoursesWithStudentCount() {
-	        List<CourseResponse> courses = courseService.getCoursesWithStudentCount();
-	        return ResponseEntity.ok(courses);
-	    }
-	 
-	 @GetMapping("/course-without-student")
-	 public ResponseEntity<List<CourseResponseDTO>>showCourseWithoutStudent(){
-		 System.out.println("course without student ====================>");
-		 return new ResponseEntity<List<CourseResponseDTO>>(courseService.getCourseWithoutStudent(),HttpStatus.OK);
-	 }
-	 
-	 @GetMapping("/get-student-each-course")
-	 public ResponseEntity<List<CourseStudentDTOCount>> getStudentCountEachCourse(){
-			return new ResponseEntity<List<CourseStudentDTOCount>>(courseService.getCountStudentEachCourse(),HttpStatus.OK);
-		}
+	@GetMapping("/get")
+	public ResponseEntity<List<CourseResponse>>showCourse(){
+		return new ResponseEntity<List<CourseResponse>>(service.show(),HttpStatus.OK);
+	}
+	
+	@GetMapping("getCourses")
+	public ResponseEntity<List<CourseResponse>> getCourseWithoutStudent(){
+		return new ResponseEntity<List<CourseResponse>>(service.getCourses(),HttpStatus.OK);
+	}
+	
+	@PatchMapping("/updateCourse/{id}")
+	public ResponseEntity<CourseResponse>updateCourse(@PathVariable("id")Integer id,@RequestParam String instructor){
+		return new ResponseEntity<CourseResponse>(service.updateCourse(id,instructor),HttpStatus.OK);
+	}
+	
+	@GetMapping("/getCoursesWithStudent")
+	public ResponseEntity<List<StudentWithCoursesCount>> getCourseDetails(){
+		return new ResponseEntity<List<StudentWithCoursesCount>>(service.getStudentWithCourses(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/topStudents")
+	public ResponseEntity<List<StudentWithCoursesCount>> getTop(@RequestParam("n")Integer n){
+		return new ResponseEntity<List<StudentWithCoursesCount>>(service.topStudent(n),HttpStatus.OK);
+	}
 }

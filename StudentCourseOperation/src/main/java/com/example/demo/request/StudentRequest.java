@@ -1,12 +1,12 @@
 package com.example.demo.request;
-
+import java.util.List;
 import lombok.Data;
-import java.util.Set;
 
 @Data
 public class StudentRequest {
-    private String name;
-    private String email;
-    private String city;
-    private Set<Long> courseIds;
+     
+	 private String city;
+	 private String name;
+	 private String email;
+	 private List<Integer>id;
 }

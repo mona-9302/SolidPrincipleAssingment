@@ -1,13 +1,13 @@
 package com.example.demo.response;
-
+import java.util.List;
 import lombok.Data;
-import java.util.Set;
 
 @Data
 public class StudentResponse {
-    private Long id;
-    private String name;
-    private String email;
-    private String city;
-    private Set<String> courses; // Course names
+     
+	 private Integer id;
+	 private String city;
+	 private String name;
+	 private String email;
+	 private List<String> courseName;
 }

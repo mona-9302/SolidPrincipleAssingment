@@ -1,15 +1,17 @@
 package com.example.demo.service;
-
 import java.util.List;
 
+import com.example.demo.request.CourseRequest;
 import com.example.demo.response.CourseResponse;
-import com.example.demo.response.CourseResponseDTO;
-import com.example.demo.response.CourseStudentDTOCount;
+import com.example.demo.response.StudentWithCoursesCount;
 
 public interface ICourseService {
-     
-	public boolean updateInstructor(Long courseId, String newInstructor);
-	public List<CourseResponse> getCoursesWithStudentCount();
-	public List<CourseResponseDTO> getCourseWithoutStudent();
-	public List<CourseStudentDTOCount> getCountStudentEachCourse();
+
+	public CourseResponse insert(CourseRequest request);
+	public List<CourseResponse> show();
+	public List<CourseResponse> getCourses();
+	public CourseResponse updateCourse(Integer id,String insctrutor);
+	public List<StudentWithCoursesCount> getStudentWithCourses();
+	public List<StudentWithCoursesCount> topStudent(Integer n);
+
 }
