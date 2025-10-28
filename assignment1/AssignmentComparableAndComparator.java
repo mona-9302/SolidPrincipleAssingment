@@ -199,21 +199,22 @@ class Employee{
             long arrayInsertTime = insertElements(arrayList, size);
             long arrayDeleteTime = deleteElements(arrayList, size);
 
-			System.out.println(arrayInsertTime);
-			System.out.println(arrayDeleteTime);
+			System.out.println("arrayListInsertion  ----->" +arrayInsertTime);
+			System.out.println("arrayListDeletion ------>" +arrayDeleteTime);
 
             List<Integer> linkedList = new LinkedList<>();
             long linkInsertTime = insertElements(linkedList, size);
             long linkDeleteTime = deleteElements(linkedList, size);
 
-			System.out.println(linkInsertTime);
-			System.out.println(linkDeleteTime);
+			System.out.println("LinkedListInsertion ----->" + linkInsertTime);
+			System.out.println("LinkedListDeletion ------>" +linkDeleteTime);
         }
     }
 
     
     public static long insertElements(List<Integer> list, int size) {
         long start = System.currentTimeMillis();
+
         for (int i = 0; i < size; i++) {
             list.add(i);  // inserting at end
         }

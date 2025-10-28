@@ -187,44 +187,44 @@ class EmployeeTest{
 //-----------------------------------check perfromance of arrayList and linkedlist-------------------------------------------
 
 
-//  class CompareListPerformance {
-//     public static void main(String[] args) {
+ class CompareListPerformance {
+    public static void main(String[] args) {
 
         
-//         int[] sizes = {10000, 50000, 100000};
+        int[] sizes = {10000, 50000, 100000};
 
-//         for (int size : sizes) {
+        for (int size : sizes) {
             
-//             List<Integer> arrayList = new ArrayList<>();
-//             long arrayInsertTime = insertElements(arrayList, size);
-//             long arrayDeleteTime = deleteElements(arrayList, size);
+            List<Integer> arrayList = new ArrayList<>();
+            long arrayInsertTime = insertElements(arrayList, size);
+            long arrayDeleteTime = deleteElements(arrayList, size);
 
-//             List<Integer> linkedList = new LinkedList<>();
-//             long linkInsertTime = insertElements(linkedList, size);
-//             long linkDeleteTime = deleteElements(linkedList, size);
-//         }
-//     }
+            List<Integer> linkedList = new LinkedList<>();
+            long linkInsertTime = insertElements(linkedList, size);
+            long linkDeleteTime = deleteElements(linkedList, size);
+        }
+    }
 
     
-//     public static long insertElements(List<Integer> list, int size) {
-//         long start = System.currentTimeMillis();
-//         for (int i = 0; i < size; i++) {
-//             list.add(i);  // inserting at end
-//         }
-//         long end = System.currentTimeMillis();
-//         return end - start;
-//     }
+    public static long insertElements(List<Integer> list, int size) {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < size; i++) {
+            list.add(i);  // inserting at end
+        }
+        long end = System.currentTimeMillis();
+        return end - start;
+    }
 
   
-//     public static long deleteElements(List<Integer> list, int size) {
-//         long start = System.currentTimeMillis();
-//         for (int i = 0; i < size; i++) {
-//             list.remove(0);  
-//         }
-//         long end = System.currentTimeMillis();
-//         return end - start;
-//     }
-// }
+    public static long deleteElements(List<Integer> list, int size) {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < size; i++) {
+            list.remove(0); //removing from the beginning 
+        }
+        long end = System.currentTimeMillis();
+        return end - start;
+    }
+}
 
 //---------------------------
 
