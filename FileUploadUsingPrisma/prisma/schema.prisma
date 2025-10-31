@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-py"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:Mona123@localhost:3306/file_upload_db"
+}
+
+model Client {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  about     String?
+  createdAt DateTime @default(now())
+}

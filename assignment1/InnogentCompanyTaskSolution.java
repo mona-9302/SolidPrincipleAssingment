@@ -159,7 +159,7 @@ class DatabaseAccountRepository implements AccountRepository {
     }
 }
 
-//  High-level module (Business logic) depends on abstraction
+//High-level module (Business logic) depends on abstraction
 class BankService {
     private AccountRepository repo;  // DIP -> depends on interface
 
