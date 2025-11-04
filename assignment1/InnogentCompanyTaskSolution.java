@@ -1,4 +1,4 @@
-// Encapsulation + Single Responsibility Principle
+
 class BankAccount {
    
     private String accountNumber;   
@@ -37,12 +37,11 @@ class EncapsulationTest {
 }
 
 
-// Inheritance + Open/Closed Principle
+ // Open/Closed Principle
 class Bank {
     //  OCP - Parent class open for extension (child classes override method), closed for modification
     public double calculateInterest(double balance) {
-        return balance * 0.05;
-    }
+        return balance * 0.05;     }
 }
 
 //  Inheritance - SavingAccount extends Bank → reuse parent class
@@ -180,21 +179,21 @@ class DIPTest {
         AccountRepository repo = new DatabaseAccountRepository(); 
         BankService bankService = new BankService(repo);
 
-        bankService.openAccount("98765967"); // BankService works without knowing concrete repo
+        bankService.openAccount("1000"); // BankService works without knowing concrete repo
     }
 }
 
 
 class FactorialUsingRecursion {
 
-    static int factorial(int n) { // Method Area, n in Stack
-        if (n == 0 || n == 1) return 1; // return in Stack
-        else return n * factorial(n - 1); // recursive call, new Stack frame
+    static int factorial(int n) { 
+        if (n == 0 || n == 1) return 1; 
+        else return n * factorial(n - 1);
     }
 
     public static void main(String[] args) {
-        int n = 3; // Stack
-        int result = factorial(n); // Stack
+        int n = 5; 
+        int result = factorial(n); 
         System.out.println("Factorial of " + n + " is: " + result); // String Pool, println in Method Area
     }
 }
@@ -213,6 +212,21 @@ class FactorialProgram{
     public static void main(String[] args) {
         int n = 5; // Stack
         System.out.println(fact(n)); // Stack, println in Method Area
+    }
+}
+
+
+class FactorialPrint{
+
+    static int factorial(int n){
+        if(n==0||n==1)return 1;
+        else return n* factorial(n-1);
+    }
+    public static void main(String[] args) {
+        
+        int n = Integer.parseInt(args[0]);
+        int result = factorial(n);
+        System.out.println(result);
     }
 }
 
