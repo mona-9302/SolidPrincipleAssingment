@@ -1,0 +1,94 @@
+.footer {
+  background: linear-gradient(180deg, #1e1e1e 0%, #0f0f0f 100%);
+  color: #e0e0e0;
+  padding: 50px 0 25px;
+  margin-top: 60px;
+  font-size: 15px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Brand / store info */
+.footer-content h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.footer-content p {
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* Section headings */
+.footer-content h4 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 12px;
+  font-weight: 600;
+  position: relative;
+}
+.footer-content h4::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 35px;
+  height: 2px;
+  background-color: #ffcc00;
+  border-radius: 2px;
+}
+
+/* Quick links */
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-content li {
+  margin-bottom: 8px;
+  opacity: 0.85;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.footer-content li:hover {
+  color: #ffcc00;
+  transform: translateX(4px);
+}
+
+/* Contact info */
+.footer-content p a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+.footer-content p a:hover {
+  text-decoration: underline;
+}
+
+/* Copyright line */
+.copy {
+  text-align: center;
+  font-size: 14px;
+  color: #bbb;
+  border-top: 1px solid #2a2a2a;
+  margin-top: 40px;
+  padding-top: 18px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 28px;
+  }
+  .footer-content h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
